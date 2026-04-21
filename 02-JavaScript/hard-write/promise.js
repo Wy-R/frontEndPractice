@@ -168,6 +168,7 @@ Promise.reject = function (value) {
   return new Promise((resolve, reject) => reject(value))
 }
 
+// race 就是
 Promise.race = function (promiseArr) {
   return new Promise((resolve, reject) => {
     promiseArr.forEach(p => {
