@@ -100,4 +100,44 @@ const deepCopy = function(obj) {
 }
 
 
+/**
+ * 节流函数（Throttle）
+ * 概念：限制函数在一定时间内只能执行一次，无论触发多少次，都按照固定的时间间隔执行
+ * 应用场景：滚动事件、 resize 事件、鼠标移动事件等高频触发的场景
+ * @param {Function} func - 要执行的函数
+ * @param {number} delay - 时间间隔（毫秒）
+ * @returns {Function} - 节流处理后的函数
+ */
+const throttle = (func, delay) => {
+  let lastTime= 0;
 
+  return function(...args) {
+    const currentTime = Date.now()
+    // 如果距离上次的时间已经小于delay 了的话，那么就执行以下
+    if(currentTime - lastTime >= delay) {
+      func.apply(this, args)
+      lastTime = currentTime
+    }
+  }
+}
+
+/**
+ * 防抖函数（Debounce）
+ * 概念：函数在一定时间内被多次触发时，只执行最后一次，前面的触发会被取消
+ * 应用场景：输入框搜索、表单提交、窗口 resize 等需要等待用户操作结束后再执行的场景
+ * @param {Function} func - 要执行的函数
+ * @param {number} delay - 延迟时间（毫秒）
+ * @returns {Function} - 防抖处理后的函数
+ */
+
+const debounce =(func, delay) => {
+  let timer = null
+  return function(...args) {
+    // 触发一次就把之前的清空掉，然后重新开始计时
+    clearTimeout(timer)
+
+    setTimeout(() => {
+      func.apply(this, args)
+    }, delay)
+  }
+}
