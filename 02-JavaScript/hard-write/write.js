@@ -60,47 +60,6 @@ const flatArr = (arr) => {
 console.log('flat 2>', flatArr(arr2))
 
 /**
- * 浅 copy
- * @param {} obj 
- * @returns 
- * 只考虑当前第一层的属性
- * Object.assign({}, obj) 或者是 {...obj} 都属于浅copy
- */
-const shallowCopy = function(obj) {
-  if (typeof obj !== 'object') return;
-  const result = Array.isArray(obj) ? []: {}
-
-  for(let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      result[key] = obj[key]
-    }
-  }
-
-  return result
-}
-
-/**
- * 深拷贝
- * @param {} obj 
- * @returns 
- * 每一层都要照顾到！
- * JSON.parse(JSON.stringify(obj)) 也可以进行深copy
- * 缺点是 Function Date  RegExp 等特殊类型无法实现会报错
- */
-const deepCopy = function(obj) {
-  if (typeof obj !=='object') return;
-  const result = []
-  for(let key in obj){
-    if (obj.hasOwnProperty(key)) {
-      result[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]): obj[key]
-    }
-  }
-
-  return result
-}
-
-
-/**
  * 节流函数（Throttle）
  * 概念：限制函数在一定时间内只能执行一次，无论触发多少次，都按照固定的时间间隔执行
  * 应用场景：滚动事件、 resize 事件、鼠标移动事件等高频触发的场景
