@@ -3,6 +3,7 @@
 用于前端面试系统性复习，包含基础、JS、浏览器、框架、工程化、网络、算法等。
 
 ## 目录结构
+
 - 01-HTML-CSS 基础与布局
 - 02-JavaScript 核心与手写题
 - 03-Browser-API 浏览器原理
@@ -14,6 +15,7 @@
 - 09-Interview 面试题汇总
 
 ## 复习进度
+
 - [ ] HTML & CSS
 - [ ] JavaScript 基础
 - [ ] JS 手写题
@@ -23,8 +25,8 @@
 - [ ] 计算机网络
 - [ ] 算法刷题
 
-
 ## 总体计划
+
 frontPractice/
 ├── 01-HTML-CSS/            # 前端基础：HTML + CSS 核心考点
 │   ├── 01-html-basic/       # HTML5 语义化、新特性、面试题
