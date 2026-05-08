@@ -67,6 +67,7 @@ export const useCounterStore = defineStore('counter', {
   }
 })
 
+
 // 使用
 // import { useCounterStore } from '@/store/counter'
 // const counter = useCounterStore()
